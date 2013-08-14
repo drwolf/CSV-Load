@@ -1,0 +1,17 @@
+<h2>Hier sehen Sie immer unsere 5 neuesten Zugänge an Postkarten:</h2>
+<div id="rot"><p>Eine vom Kunden als CSV Datei gelieferter Warenbestand lud ich in die Datenbank dieser RailsApp hoch.</p>
+
+<p>In die csv können immer neue Datensätze eingetragen werden. Bei einer über eine rake task laufenden update werden aus der csv datei mit dem Gesamtwarenbestand immer nur die neuesten Waren in die Datenbank geladen.</p> Doppelungen werden automatisch vermieden.
+
+<p>Auf dieser Anzeige-Seite werden immer nur die fünf neuesten Wareneingänge präsentiert (Es könnten natürlich auch die zehn,... neuesten Postkarten sein, die frisch zum Warenbestand dazu kamen</p>
+
+<p>Ziel: Die Rake Task zum Update des Warenbestandes den der Kunde in seiner csv Datei einpflegt regelmäßig automatisch durchführen lassen (idee: resque zeitgesteuerte rake task sheduler - sieh bookmarks)</p></div>
+<ul><% @schniff.each do |t| %>
+<p>
+<table>
+<tr><td id="tabelle">
+<li><%= t.Title %><br /></p>
+    <p><%= image_tag(t.imageUrl, width: "200") %></p></td><td><p><%= t.Description %></p></td></tr></table>
+    <hr />
+</li>
+<% end %></ul>
